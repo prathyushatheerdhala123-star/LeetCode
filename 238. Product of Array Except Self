@@ -1,0 +1,24 @@
+238. Product of Array Except Self
+
+class Solution {
+    public int[] productExceptSelf(int[] nums) {
+        int len = nums.length;
+        int lp[] = new int[len];
+        int rp[] = new int[len];
+        int res[] = new int[len];
+        lp[0]=1;
+        rp[len-1]=1;
+        for(int i =1;i<len;i++){
+            lp[i]=lp[i-1]*nums[i-1];
+        //    System.out.println(lp[i]);
+        }
+        for(int i =len-2;i>=0;i--){
+            rp[i]=rp[i+1]*nums[i+1];
+        //    System.out.println(rp[i]);
+        }
+        for(int i =0;i<len;i++){
+            res[i]=lp[i]*rp[i];
+        }
+        return res;
+    }
+}
