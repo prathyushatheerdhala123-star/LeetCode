@@ -1,0 +1,15 @@
+3110. Score of a String
+class Solution {
+    public int scoreOfString(String s) {
+        int len = s.length();
+        int ch[]=new int[len];
+        for(int i=0;i<len;i++){
+            ch[i]=(int)s.charAt(i);
+        }
+        int res=0;
+        for(int i =0;i<len-1;i++){
+            res = res +Math.abs(ch[i]-ch[i+1]);
+        }
+        return res;
+    }
+}
